@@ -1,12 +1,13 @@
 # bytearray
 
-user_info = bytearray(' ', 'utf-8')
+us_infos = bytearray(' ', 'utf-8')
 
-name = input('Isim: ')
-lastname = input('Familiya: ')
-age = input('Yosh: ')
+name = input("Ism: ")
+lastname = input("Familiya: ")
+age = input("Yosh: ")
 
-user_info.extend(bytes(name, 'utf-8'))
-user_info.extend(bytes(lastname, 'utf-8'))
-user_info.extend(bytes(age, 'utf-8'))
-print(user_info)
+us_infos.extend(bytearray(name, 'utf-8'))
+us_infos.extend(bytearray(lastname, 'utf-8'))
+us_infos.extend(bytearray(age, 'utf-8'))
+
+print(us_infos)
