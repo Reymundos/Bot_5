@@ -21,6 +21,7 @@ from telebot import TeleBot
 from telebot.types import Message
 
 from buttons import main_menu
+from buttons import city_button
 
 bot = TeleBot('7161771262:AAFJNJ1l-J0W4hJdLT2SaCQejVePiedCPrQ', parse_mode='html')
 
@@ -28,6 +29,7 @@ bot = TeleBot('7161771262:AAFJNJ1l-J0W4hJdLT2SaCQejVePiedCPrQ', parse_mode='html
 def reaction_to_start(message: Message):
     chat_id = message.chat.id
     bot.send_message(chat_id, f'Siz <b>Ob - Havo</b> botiga kirdingiz', reply_markup=main_menu())
+    bot.send_message(chat_id, '', reply_markup=city())
 
 @bot.message_handler(regexp='Ob-Havo')
 def text(message: Message):
@@ -39,7 +41,10 @@ def get_city_name(message: Message):
     chat_id = message.chat.id
     print(message.text)
 
-
+@bot.message_handler(regexp='City')
+def city(message: Message):
+    chat_id = message.chat.id
+    bot.send_message(chat_id, 'Shahar', reply_markup=city())
 
 
 if __name__ == '__main__':
